@@ -1,6 +1,6 @@
-##Whiteboard ORC
+## Whiteboard ORC
 
-setup
+### setup
 - clone the project
 - npm install
 - npm start
