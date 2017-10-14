@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
-import Header from "./components/Header";
 import Home from "./components/Home";
 import { analyseImageByUrl } from "./services/cognitiveServices.js";
 

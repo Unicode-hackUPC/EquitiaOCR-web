@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Dropzone from "react-dropzone";
 import Spinner from "./Spinner";
-import analyseImage from "../services/cognitiveServices.js";
+import {analyseImageByFile} from "../services/cognitiveServices.js";
 
 class Home extends Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class Home extends Component {
 
   render() {
     if (this.state.accepted.length !== 0) {
-      analyseImage(this.state.accepted[0], this.setPending);
+      analyseImageByFile(this.state.accepted[0], this.setPending);
     }
     return (
       <div className="home">
