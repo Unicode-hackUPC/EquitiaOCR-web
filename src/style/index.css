@@ -1,0 +1,17 @@
+@import url('./home.css');
+@import url('./header.css');
+
+@font-face {
+    font-family: "Panama";
+    src: url("../assets/fonts/Panama-Light.otf");
+}
+@font-face {
+    font-family: "Saigonese";
+    src: url("../assets/fonts/Saigonese.otf");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
