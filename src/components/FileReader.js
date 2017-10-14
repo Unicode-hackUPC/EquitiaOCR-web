@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import home from "../assets/images/home.svg";
 class FileReader extends Component {
   constructor(props) {
     super(props);
@@ -48,46 +47,38 @@ class FileReader extends Component {
     this.getMaxHeight();
     // this.getFontSize();
     return (
-      <div>
-        <button
-          style={{ alignSelf: "flex-start", fontSize: "1em" }}
-          onClick={() => this.props.setFile(false)}
+      <div
+        style={{
+          position: "fixed",
+          background: "white",
+          width: this.width + 20,
+          height: "100vh",
+          overflow: "auto"
+        }}
+      >
+        <canvas
+          id="cs"
+          style={{ margin: "auto", padding: "2em" }}
+          width={this.width}
+          height={this.height}
         >
-          <img style={{ width: "100%" }} src={home} />
-        </button>
-        <div
-          style={{
-            position: "fixed",
-            background: "white",
-            width: this.width + 20,
-            height: "100vh",
-            overflow: "auto"
-          }}
-        >
-          <canvas
-            id="cs"
-            style={{ margin: "auto", padding: "2em" }}
-            width={this.width}
-            height={this.height}
-          >
-            {this.state.lines && this.state.ctx
-              ? this.state.lines.map((line, key) => {
-                  //  console.log("this.font", this.fontSize);
-                  let fontSize =
-                    (line.boundingBox[2] - line.boundingBox[0]) /
-                    line.text.length;
-                  console.log("fsize", line.text, fontSize);
-                  this.state.ctx.font = fontSize + "px Arial";
-                  this.state.ctx.fillText(
-                    line.text,
-                    line.boundingBox[0] + 20,
-                    line.boundingBox[1] + 20
-                  );
-                  return <p key={key}>{line.text}</p>;
-                })
-              : null}
-          </canvas>
-        </div>
+          {this.state.lines && this.state.ctx
+            ? this.state.lines.map((line, key) => {
+                //  console.log("this.font", this.fontSize);
+                let fontSize =
+                  (line.boundingBox[2] - line.boundingBox[0]) /
+                  line.text.length;
+                console.log("fsize", line.text, fontSize);
+                this.state.ctx.font = fontSize + "px Arial";
+                this.state.ctx.fillText(
+                  line.text,
+                  line.boundingBox[0] + 20,
+                  line.boundingBox[1] + 20
+                );
+                return <p key={key}>{line.text}</p>;
+              })
+            : null}
+        </canvas>
       </div>
     );
   }

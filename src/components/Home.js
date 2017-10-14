@@ -3,6 +3,8 @@ import Dropzone from "react-dropzone";
 import Spinner from "./Spinner";
 import FileReader from "./FileReader";
 
+import home from "../assets/images/home.svg";
+
 import {
   analyseImageByFile,
   analyseImageByUrl
@@ -63,6 +65,20 @@ class Home extends Component {
     }
     return (
       <div className="home">
+        <button
+          style={{
+            position: "absolute",
+            left: "0",
+            top: "0",
+            margin: "1em",
+            background: "none",
+            border: "none",
+            cursor: "pointer"
+          }}
+          onClick={() => this.setFile(false)}
+        >
+          <img style={{ width: "5em" }} src={home} />
+        </button>
         {this.state.pending ? (
           <Spinner />
         ) : !this.state.readFile ? (
