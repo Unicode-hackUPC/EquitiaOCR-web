@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 
+import Header from "./components/Header";
 import Home from "./components/Home";
-import analyseImage from "./services/cognitiveServices.js";
+import { analyseImageByUrl } from "./services/cognitiveServices.js";
 
 import "./style/index.css";
 
 class App extends Component {
   render() {
-    analyseImage(
-      "https://scontent-mad1-1.xx.fbcdn.net/v/t34.0-12/22497400_10211204530124478_179622941_n.jpg?oh=471806aef54ba3f54130d178ba36391a&oe=59E44C8B"
+    analyseImageByUrl(
+      "https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg"
     );
     return (
       <div className="App">
