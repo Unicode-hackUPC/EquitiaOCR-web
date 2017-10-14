@@ -17,13 +17,25 @@ export const initializeFirebase = () => {
   console.log("done");
 };
 
+const makeid = () => {
+  var text = "";
+  var possible =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 5; i++)
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+};
+
+console.log(makeid());
 export const uploadImage = (file, callback) => {
   // Create a root reference
   console.log("file", file);
   const store = firebase.storage();
   const ref = store.ref();
   ref
-    .child("images/" + file.name)
+    .child("images/" + makeid())
     .put(file)
     .then(function(snapshot) {
       callback(snapshot.downloadURL);
