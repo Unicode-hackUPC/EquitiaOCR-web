@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 
 import Header from "./components/Header";
@@ -9,7 +10,7 @@ import "./style/index.css";
 class App extends Component {
   render() {
     analyseImageByUrl(
-      "https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg"
+      'https://upload.wikimedia.org/wikipedia/commons/4/41/Sunflower_from_Silesia2.jpg',
     );
     return (
       <div className="App">
