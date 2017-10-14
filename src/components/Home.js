@@ -12,7 +12,7 @@ class Home extends Component {
       urlValue: "",
       accepted: [],
       rejected: [],
-      pending: true
+      pending: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.setPending = this.setPending.bind(this);

@@ -5,7 +5,7 @@ const client = cognitiveServices.computerVision({
 });
 const headers = { "Content-type": "application/json" };
 
-export default function analyseImage(fileUrl) {
+export default function analyseImageByUrl(fileUrl) {
   let isRunning = true;
 
   const body = { url: fileUrl };
