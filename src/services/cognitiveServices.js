@@ -15,32 +15,6 @@ export function analyseImageByUrl(fileUrl, setPending) {
   sendRequest(headers, body, parameters, setPending);
 }
 
-export function analyseImageByFile(file, setPending) {
-  setPending(true, null);
-  const headers = { "Content-type": "application/octet-stream" };
-  //const file = new File([fileBuf], "name", { type: "file" });
-  let parameters = {
-    handwriting: true
-  };
-
-  const reader = new FileReader();
-  const body = reader.readAsDataURL(file);
-
-  reader.addEventListener(
-    "load",
-    function() {
-      // let byteArray = new Uint8Array(reader.result.length / 2);
-      // for (let x = 0; x < byteArray.length; x++) {
-      //   byteArray[x] = parseInt(reader.result.substr(x * 2, 2), 16);
-      // }
-      // let blob = new Blob([file]);
-      // const body = reader.result;
-      sendRequest(headers, body, parameters, setPending);
-    },
-    false
-  );
-}
-
 const sendRequest = (headers, body, parameters, setPending) => {
   let isRunning = true;
 

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Dropzone from "react-dropzone";
 import Spinner from "./Spinner";
 import FileReader from "./FileReader";
+import { initializeFirebase, uploadImage } from "../services/firebase";
 
 import home from "../assets/images/home.svg";
 
@@ -16,8 +17,6 @@ class Home extends Component {
     this.state = {
       url: false,
       urlValue: "",
-      accepted: [],
-      rejected: [],
       pending: false,
       readFile: false,
       file: null,
@@ -28,7 +27,9 @@ class Home extends Component {
     this.setPending = this.setPending.bind(this);
     this.setFile = this.setFile.bind(this);
   }
-  componentDidMount() {}
+  componentDidMount() {
+    initializeFirebase();
+  }
 
   showUrl = boo => {
     this.setState({ url: boo });
@@ -60,9 +61,6 @@ class Home extends Component {
   }
 
   render() {
-    if (this.state.accepted.length !== 0) {
-      analyseImageByFile(this.state.accepted[0], this.setPending);
-    }
     return (
       <div className="home">
         <button
@@ -87,7 +85,8 @@ class Home extends Component {
               className="button draganddrop"
               accept="image/png, image/jpeg, image/jpg"
               onDrop={(accepted, rejected) => {
-                this.setState({ accepted, rejected });
+                const callback = url => analyseImageByUrl(url, this.setPending);
+                uploadImage(accepted[0], callback);
               }}
             >
               <p>Upload a picture</p>

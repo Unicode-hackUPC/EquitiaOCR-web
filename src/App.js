@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import Home from "./components/Home";
-import { analyseImageByUrl } from "./services/cognitiveServices.js";
 
 import "./style/index.css";
 
